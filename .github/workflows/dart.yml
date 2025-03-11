@@ -25,7 +25,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.10.0'  # Sesuaikan dengan versi Flutter yang ingin digunakan
+          flutter-version: '3.10.0'
           channel: 'stable'
 
       - name: Cache Flutter & Gradle
@@ -39,13 +39,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-flutter-
 
-      - name: Check and Create Android Folder
+      # ✅ Tambahkan langkah ini untuk memastikan folder android ada
+      - name: Ensure Android Folder Exists
         run: |
           if [ ! -d "android" ]; then
-            echo "Android folder missing. Running 'flutter create .'"
             flutter create .
-          else
-            echo "Android folder exists."
           fi
 
       - name: Install dependencies
