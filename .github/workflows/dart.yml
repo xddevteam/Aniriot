@@ -43,7 +43,9 @@ jobs:
         run: flutter pub get
 
       - name: Enable Gradle Offline Mode
-        run: echo "org.gradle.offline=true" >> ~/.gradle/gradle.properties
+        run: |
+          mkdir -p ~/.gradle
+          echo "org.gradle.offline=true" >> ~/.gradle/gradle.properties
 
       - name: Build APK Debug
         if: ${{ github.event.inputs.build_target == 'apk-debug' }}
