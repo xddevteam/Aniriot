@@ -39,6 +39,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-flutter-
 
+      - name: Check and Create Android Folder
+        run: |
+          if [ ! -d "android" ]; then
+            echo "Android folder missing. Running 'flutter create .'"
+            flutter create .
+          else
+            echo "Android folder exists."
+          fi
+
       - name: Install dependencies
         run: flutter pub get
 
