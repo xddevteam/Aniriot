@@ -19,6 +19,7 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
+    applicationId "com.example.ani_riot"
     compileSdkVersion 34  // Gunakan versi terbaru untuk JNI
 
     ndkVersion "26.1.10909125"  // Pastikan NDK versi terbaru untuk JNI
